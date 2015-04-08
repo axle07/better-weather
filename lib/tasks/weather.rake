@@ -13,11 +13,12 @@ namespace :weather do
 		require 'forecast_io'
 		ForecastIO.api_key = '7585f78c82270a33dfedf212c3c02d73'
 
-		@l = Location.take(10)
+		@l = Location.all
 
 		@l.each do |l|
-			forecast = ForecastIO.forecast(l.latitude, l.longitude)
-			puts forecast.currently.summary
+			forecast = ForecastIO.forecast(l.latitude, l.longitude, time: Time.now.utc.to_i)
+			l.current_forecast =  forecast.currently.icon
+			l.save
 		end
 	end
 end
