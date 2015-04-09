@@ -1,8 +1,25 @@
 <script>
-navigator.geolocation.getCurrentPosition(GetLocation);
-function GetLocation(location) {
-    alert(location.coords.latitude);
-    alert(location.coords.longitude);
-    alert(location.coords.accuracy);
-}
+
+	$(document).ready( function() {
+		navigator.geolocation.getCurrentPosition(GetLocation);
+		function GetLocation(location) {
+			lat = location.coords.latitude;
+			lon = location.coords.longitude;
+			//console.log(location.coords.accuracy);
+			console.log(lat);
+			console.log(lon);
+			$('#latitude').val(lat);
+			$('#longitude').val(lon);
+
+			$('.wlink').each( function() {
+				var href = $(this).attr('href');
+				console.log(href + "/" + lat + '/' + lon);
+				$(this).attr('href', href + "?latitude=" + lat + '&longitide=' + lon);
+			});
+		}
+	});
 </script>
+<h1>I want to find:</h1>
+<%= link_to "rain", search_path("rain"), class: "wlink" %>
+<%= link_to "sun", search_path("clear%"), class: "wlink" %>
+<%= link_to "snow", search_path("snow"), class: "wlink" %>
