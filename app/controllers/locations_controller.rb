@@ -12,12 +12,9 @@ class LocationsController < ApplicationController
   end
 
 	def search
-		@destinations = Location.all.where("current_forecast like ?", params[:weather])
-
-		@destinations = @destinations.sort_by{ |d|
+		@destinations = Location.all.where("current_forecast like ?", params[:weather]).sort_by{ |d|
 			d.distance_to([params[:latitude].to_f, params[:longitude].to_f])
 		}
-
 	end
 
   # GET /locations/1

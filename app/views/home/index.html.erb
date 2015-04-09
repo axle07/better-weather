@@ -13,8 +13,7 @@
 
 			$('.wlink').each( function() {
 				var href = $(this).attr('href');
-				console.log(href + "/" + lat + '/' + lon);
-				$(this).attr('href', href + "?latitude=" + lat + '&longitide=' + lon);
+				$(this).attr('href', href + "?latitude=" + lat + '&longitude=' + lon);
 			});
 		}
 	});
