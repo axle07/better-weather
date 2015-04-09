@@ -16,12 +16,16 @@ class LocationsController < ApplicationController
 			d.distance_to([params[:latitude].to_f, params[:longitude].to_f])
 		}.first
 
+		@conditions = ""
+
 		if params[:weather] == "rain"
 			@conditions = "raining"
-		elsif params[:weather] = "snow"
+		elsif params[:weather] == "snow"
 			@conditions = "snowing"
-		else
+		elsif params[:weather] == "clear%"
 			@conditions = "sunny"
+		else
+			@conditions = "different"
 		end
 	end
 

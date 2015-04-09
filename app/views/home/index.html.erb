@@ -1,5 +1,5 @@
-<script>
 
+<script>
 	$(document).ready( function() {
 		navigator.geolocation.getCurrentPosition(GetLocation);
 		function GetLocation(location) {
@@ -18,7 +18,20 @@
 		}
 	});
 </script>
-<h1>Show me where it's:</h1>
-<%= link_to "raining", search_path("rain"), class: "wlink" %>
-<%= link_to "sunny", search_path("clear%"), class: "wlink" %>
-<%= link_to "snowing", search_path("snow"), class: "wlink" %>
+<div class="site-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<h1>Show me where it's:</h1>
+			</div>
+			</div>
+			<div class="row" style="margin-top: 10px">
+				<div class="col-md-4 col-md-offset-4">
+					<%= link_to "raining", search_path("rain"), class: "wlink btn btn-primary" %>
+					<%= link_to "sunny", search_path("clear%"), class: "wlink btn btn-warning" %>
+					<%= link_to "snowing", search_path("snow"), class: "wlink btn btn-default" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

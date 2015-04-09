@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
-<h1>The nearest place where it's <%= @conditions %> is:</h1>
-<table>
-  <thead>
-    <tr>
-      <th>City</th>
-      <th>State</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><%= @destinations.city %></td>
-        <td><%= @destinations.state %></td>
-        <td><%= @destinations.latitude %></td>
-        <td><%= @destinations.longitude %></td>
-      </tr>
-  </tbody>
-</table>
-<%= link_to "Back", root_url  %>
-
+<% imagePath = @conditions + '.jpg' %>
+<div style="height: 100%; background: black url(<%= image_path imagePath %>) no-repeat top center fixed; background-size: cover">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<p id="notice"><%= notice %></p>
+				<h1>The nearest place where it's <%= @conditions %> is:</h1>
+			</div>
+		</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<table class="table lead">
+					<tr>
+						<td><%= @destinations.city %></td>
+						<td><%= @destinations.state %></td>
+					</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<%= link_to "Back", root_url  %>
+		</div>
+	</div>
+</div>
