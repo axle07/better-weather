@@ -16,9 +16,13 @@ namespace :weather do
 		@l = Location.all
 
 		@l.each do |l|
-			forecast = ForecastIO.forecast(l.latitude, l.longitude, time: Time.now.utc.to_i)
-			l.current_forecast =  forecast.currently.icon
-			l.save
+			if l
+				forecast = ForecastIO.forecast(l.latitude, l.longitude, time: Time.now.utc.to_i)
+				l.current_forecast =  forecast.currently.icon
+				l.save
+			else
+				puts l.inspect
+			end
 		end
 	end
 end

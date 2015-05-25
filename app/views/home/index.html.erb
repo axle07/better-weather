@@ -21,15 +21,18 @@
 <div class="site-wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<h1>Show me where it's:</h1>
+				<% flash.each do |message_type, message| %>
+					<div class="alert alert-info"><%= message %></div>
+				<% end %>
+			<div class="col-md-12">
+				<h1 style="font-size: 84px">Show me where it's:</h1>
 			</div>
 			</div>
-			<div class="row" style="margin-top: 10px">
-				<div class="col-md-4 col-md-offset-4">
-					<%= link_to "raining", search_path("rain"), class: "wlink btn btn-primary" %>
-					<%= link_to "sunny", search_path("clear%"), class: "wlink btn btn-warning" %>
-					<%= link_to "snowing", search_path("snow"), class: "wlink btn btn-default" %>
+			<div class="row" style="margin-top: 40px">
+				<div class="col-md-12">
+					<%= link_to "raining", search_path("rain"), class: "wlink btn btn-primary btn-lg" %>
+					<%= link_to "sunny", search_path("clear%"), class: "wlink btn btn-warning btn-lg" %>
+					<%= link_to "snowing", search_path("snow"), class: "wlink btn btn-default btn-lg" %>
 				</div>
 			</div>
 		</div>

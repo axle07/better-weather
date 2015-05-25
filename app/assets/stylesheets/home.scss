@@ -1,6 +1,9 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	font-size: 18px;
+}
 .site-wrapper {
 	height: 100%;
 	background: black url(image_path('beach.jpg')) no-repeat top center fixed;
@@ -15,6 +18,23 @@ h1 {
 .row {
 	text-align: center
 }
+.wlink {
+	font-size: 24px;
+	font-weight: 200;
+	margin-right: 12px;
+	margin-left: 12px;
+}
 .btn-primary, .btn-success, a.btn-primary:visted, a.btn-success:visted {
 	color: white
 }
+@media(max-width: 992px) {
+	.container {
+		padding-top:24px;
+	}
+	.wlink {
+		font-size: 19px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
