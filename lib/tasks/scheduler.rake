@@ -18,7 +18,11 @@ namespace :weather do
 		@l.each do |l|
 			if l
 				forecast = ForecastIO.forecast(l.latitude, l.longitude, time: Time.now.utc.to_i)
-				l.current_forecast =  forecast.currently.icon
+				if forecast
+					l.current_forecast =  forecast.currently.icon
+				else
+					puts "no forecast for " + l.inspect
+				end
 				l.save
 			else
 				puts l.inspect
