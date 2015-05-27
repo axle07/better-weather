@@ -1,14 +1,13 @@
-
 <script>
+function loadUnload() {
+}
+
 	$(document).ready( function() {
 		setTimeout(function() {
 			navigator.geolocation.getCurrentPosition(GetLocation);
 			function GetLocation(location) {
 				lat = location.coords.latitude;
 				lon = location.coords.longitude;
-				//console.log(location.coords.accuracy);
-				console.log(lat);
-				console.log(lon);
 				$('#latitude').val(lat);
 				$('#longitude').val(lon);
 
@@ -16,12 +15,35 @@
 					var href = $(this).attr('href');
 					$(this).attr('href', href + "?latitude=" + lat + '&longitude=' + lon);
 				});
+				$('#floatingCirclesG').toggle();
+				$('.prog-wrapper').toggle();
 			}
 		} , 10);
 	});
 </script>
 <div class="site-wrapper">
 	<div class="container">
+			<div class="prog-wrapper">
+				<h1>Identifying your location...</h1>
+				<div id="floatingCirclesG">
+					<div class="f_circleG" id="frotateG_01">
+					</div>
+					<div class="f_circleG" id="frotateG_02">
+					</div>
+					<div class="f_circleG" id="frotateG_03">
+					</div>
+					<div class="f_circleG" id="frotateG_04">
+					</div>
+					<div class="f_circleG" id="frotateG_05">
+					</div>
+					<div class="f_circleG" id="frotateG_06">
+					</div>
+					<div class="f_circleG" id="frotateG_07">
+					</div>
+					<div class="f_circleG" id="frotateG_08">
+					</div>
+				</div>
+				</div>
 		<div class="row">
 			<div class="col-md-12">
 				<h1 style="font-size: 84px">Show me where it's:</h1>
