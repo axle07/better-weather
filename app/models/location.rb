@@ -9,14 +9,6 @@ class Location < ActiveRecord::Base
     self.latitude.blank? || self.longitude.blank?
   end
 
-  def self.dedup
-    grouped = Location.all.group_by{ |location| [location.city, location.state, location.latitude, location.longitude, location.id] }
-    grouped.values.each do |duplicates|
-      first_one = duplicates.shift
-      duplicates.each { |double| double.destroy }
-    end
-  end
-
   before_save :geocode, :if => :coords_nil?
 
   Location.dedup
