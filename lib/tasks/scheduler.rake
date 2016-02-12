@@ -11,7 +11,7 @@ namespace :weather do
 
   # thanks to SO for this one:
   # http://stackoverflow.com/questions/5638543/how-to-remove-duplicates-in-mysql-using-rails
-  task dedupe_db: :environment do 
+  task dedupe_cities: :environment do 
     counts = Location.group([:city, :state]).count
 
     dupes = counts.select{|attrs, count| count > 1}
