@@ -10,6 +10,4 @@ class Location < ActiveRecord::Base
   end
 
   before_save :geocode, :if => :coords_nil?
-
-  Location.dedup
 end

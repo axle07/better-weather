@@ -6,6 +6,7 @@ namespace :weather do
 
     CSV.foreach('cities3.csv', :headers => true) do |row|
       Location.create!(row.to_hash)
+      sleep 1.0
     end
   end
 
