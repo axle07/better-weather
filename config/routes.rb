@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 	
-	root 'home#index'
+  root 'home#index'
   resources :locations
-	get '/search/:weather' => 'locations#search', as: "search"
+  get '/search/:weather' => 'locations#search', as: "search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
