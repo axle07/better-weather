@@ -46,7 +46,7 @@ function loadUnload() {
 				</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h1 style="font-size: 84px">Show me where it's:</h1>
+				<h1 style="font-size: 84px">Find the nearest place where weather is:</h1>
 				<% flash.each do |message_type, message| %>
 					<div class="alert alert-info"><%= message %></div>
 				<% end %>
@@ -59,6 +59,11 @@ function loadUnload() {
 				<%= link_to "snowing", search_path("snow"), class: "wlink btn btn-default btn-lg" %>
 			</div>
 		</div>
+		<div class="row" style="margin-top: 40px">
+            <div class="col-md-12" style="margin-top: 60px; font-size: 12px;">
+                <p>Better Weather uses your location to find the nearest places where the weather is raining, snowing, or sunny, so that you can plan a little getaway from the sunshine or endless snowy days.</p>
+            </div>
+        </div>
 	</div>
 </div>
 </div>
