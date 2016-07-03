@@ -13,8 +13,10 @@ class LocationsController < ApplicationController
 
     # results page
 	def search
+        coords = Geocoder.coordinates(params[:ip]).to_f
+
 		@destinations = Location.all.where("current_forecast like ?", params[:weather]).sort_by{ |d|
-			d.distance_to([params[:ip]])
+			d.distance_to(coords)
 		}.first
 
 		@conditions = ""
