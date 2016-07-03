@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     # results page
 	def search
 		@destinations = Location.all.where("current_forecast like ?", params[:weather]).sort_by{ |d|
-			d.distance_to([params[:latitude].to_f, params[:longitude].to_f])
+			d.distance_to([params[:ip]])
 		}.first
 
 		@conditions = ""
@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
 				@conditions = "raining"
 			elsif params[:weather] == "snow"
 				@conditions = "snowing"
-			elsif params[:weather] == "clear%"
+			elsif params[:weather] == "clear"
 				@conditions = "sunny"
 			else
 				@conditions = "different"
