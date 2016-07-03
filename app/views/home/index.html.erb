@@ -1,8 +1,5 @@
 <script>
-function loadUnload() {
-}
-
-	$(document).ready( function() {
+    function getByLatLon() {
 		setTimeout(function() {
 			navigator.geolocation.getCurrentPosition(GetLocation);
 			function GetLocation(location) {
@@ -18,12 +15,26 @@ function loadUnload() {
 				$('#floatingCirclesG').toggle();
 				$('.prog-wrapper').toggle();
 			}
-		} , 10);
+        } , 10);
+    }
+
+    function getByIp() {
+				$('.wlink').each( function() {
+					var href = $(this).attr('href');
+                    $(this).attr('href', href + "?ip=" + "<%=  @loc.ip %>");
+				});
+				$('#floatingCirclesG').toggle();
+				$('.prog-wrapper').toggle();
+    }
+
+    $(document).ready( function() {
+        getByIp();
 	});
 </script>
+<%= debug  @loc.ip %>
 <div class="site-wrapper">
 	<div class="container">
-			<div class="prog-wrapper">
+<!--			<div class="prog-wrapper">
 				<h1>Identifying your location...</h1>
 				<div id="floatingCirclesG">
 					<div class="f_circleG" id="frotateG_01">
@@ -43,8 +54,9 @@ function loadUnload() {
 					<div class="f_circleG" id="frotateG_08">
 					</div>
 				</div>
-				</div>
-		<div class="row">
+		</div>
+        -->	
+        <div class="row">
 			<div class="col-md-12">
 				<h1 style="font-size: 84px">Find me the nearest place where weather is:</h1>
 				<% flash.each do |message_type, message| %>
