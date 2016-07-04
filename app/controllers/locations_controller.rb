@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
 				@conditions = "raining"
 			elsif params[:weather] == "snow"
 				@conditions = "snowing"
-			elsif params[:weather] == "clear"
+			elsif params[:weather] == "clear%"
 				@conditions = "sunny"
 			else
 				@conditions = "different"
