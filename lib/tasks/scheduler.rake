@@ -30,7 +30,7 @@ namespace :weather do
 
   task update_forecasts: :environment do
     require 'forecast_io'
-    ForecastIO.api_key = '7585f78c82270a33dfedf212c3c02d73'
+    ForecastIO.api_key = ENV["FORECAST_KEY"]
 
     @l = Location.all
 
