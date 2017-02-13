@@ -32,9 +32,9 @@ namespace :weather do
     require 'forecast_io'
     ForecastIO.api_key = ENV["FORECAST_KEY"]
 
-    @l = Location.all
+    @locations = Location.all
 
-    @l.each do |l|
+    @locations.each do |l|
       if l
         forecast = ForecastIO.forecast(l.latitude, l.longitude, time: Time.now.utc.to_i)
         if forecast
